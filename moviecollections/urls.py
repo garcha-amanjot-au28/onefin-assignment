@@ -16,9 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from movies import views
+# from rest_framework import routers
+
+# router = routers.DefaultRouter()
+# router.register(r'', views.CollectionViewSet)
+# router.register(r'movies', views.MovieViewSet)
 
 urlpatterns = [
+    # path('collections',include(router.urls)),
     path('admin/', admin.site.urls),
     path('movies/', views.get_movies),
-    path('register/', views.user_create)
+    path('register/', views.user_create),
+    path('collections/', include('movies.urls'))
 ]
